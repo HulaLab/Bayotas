@@ -10,10 +10,19 @@
   -If not, click URL and then copy and paste the link into the URL box and then click clone.
 - You can now navigate to the folder that you cloned and open ane edit documents in this folder. 
 
-### How to upload a document to a github repository: 
+### How to upload a document to a github repository from github.com: 
 - Go to the github.com 
 - Click the repository folder of your choice and click the option that says "Add file".There will be a 
 pop-up menu that says "Upload files". 
 - Go to where you saved your documents in your computer and drag your file into the area where it says "Drag  files here". 
 ![Screen Shot 2021-04-20 at 12 37 29 PM](https://user-images.githubusercontent.com/74422199/115433139-34bf7280-a1d5-11eb-9d87-d99f946dfd8d.png)
  - After dragging your file, go to the bottom left corner of your screen and click the green option that says "commit changes". 
+
+### How to upload a document to github repository from github desktop application: 
+- Open your repository folder you created that you pulled from github.com
+  - If you have not cloned your repository folder, see instructions above labeled "Pull the repository you wish to use." 
+- You can either save your document into the repository folder or drag the document into the repository folder.   
+- Go to the github desktop application. 
+- Once you see your document in the github desktop application, go to the bottom left corner and click the blue icon that says "Commit to main". 
+- There will be a blue icon on the right hand side that says to "Push origin".
+- To check that your document is uploaded, go to github.com and click on the repository folder in which you uploaded your document in.  
