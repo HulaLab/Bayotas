@@ -26,3 +26,10 @@ pop-up menu that says "Upload files".
 - Once you see your document in the github desktop application, go to the bottom left corner and click the blue icon that says "Commit to main". 
 - There will be a blue icon on the right hand side that says to "Push origin".
 - To check that your document is uploaded, go to github.com and click on the repository folder in which you uploaded your document in.  
+
+### How to retireve new documents OR edits to existing documents from a github repository
+- Edits from other users may be pulled to your local version of files.
+- Github desktop will notifiy you that changes have been made to documents through highlighting a box on the right hand sand of the application with a button titled "Pull origin".  See photo below for example:
+![image](https://user-images.githubusercontent.com/44681191/115435698-1b6bf580-a1d8-11eb-803e-b16282804fb7.png)
+- Click pull origin
+- Navigiate to the localley saved repository to access your newly updated document.
