@@ -1,3 +1,4 @@
+# Pauline testing~ 
 library(catIrt)
 #simulate item parameters and population parameters 
 
