@@ -126,7 +126,7 @@ for (i in 1:1000){
   theta_est_posttx_3.20_cat30_mat[i,2] <- theta_est_posttx_3.20_cat30_list[[i]]$seFinal
 }
 save.image("~/bayotas bphil/Bayotas/Condition 3_2020.02.15.RData")
-mean(theta_est_posttx_3.20)
+mean(theta_est_posttx_3.20) #54.327
 
 cond_3.20_fullpnt_change_scores <- theta_est_posttx_3.20 - theta_est_pretx
 cond_3.20_cat30_change_scores <- theta_est_posttx_3.20_cat30_mat[,1] - theta_est_pretx_cat30$final.values.df$estimated.theta
@@ -136,6 +136,26 @@ sd(cond_3.20_fullpnt_change_scores)
 
 t.test(x = cond_3.20_cat30_change_scores, mu = 0)
 sd(cond_3.20_cat30_change_scores)
+load("/Users/pauline/Documents/Bayotas/Condition 3_2020.02.15.RData")
 
+# collect item admin data for post-tx 2.20 CAT30 condition and compare to items
+# affected by treatment 
 
+n_tx_items_in_posttx_cat30_3.20 <- NULL
+for (i in 1:1000){
+  n_tx_items_in_posttx_cat30_3.20[i] <- length(intersect(theta_est_posttx_3.20_cat30_list[[i]]$testItems,
+                                                         order(itpar_3.20_list[[i]][,5])[1:20]))
+  
+}
+
+?length
+
+hist(n_tx_items_in_posttx_cat30_3.20, xlab = "Number of Treated Items Administered in Post-Tx PNT-CAT30",
+     main = NULL)
+
+cat_change_w_n_tx_items <- cbind(cond_3.20_cat30_change_scores,n_tx_items_in_posttx_cat30_3.20)
+
+plot(x = n_tx_items_in_posttx_cat30_3.20, y = cond_3.20_cat30_change_scores, 
+     xlab = "Number of Treated Items Administered in Post-Tx PNT-CAT30", ylab = "PNT-CAT30 Change Score")
+cor.test(x = n_tx_items_in_posttx_cat30_3.20, y = cond_3.20_cat30_change_scores)
 
