@@ -79,7 +79,7 @@ for (i in 1:1000){
         D = 1,
         randomesque = 1,
         random.seed = NULL,
-        startSelect = "MFI",
+        startSelect = "MFI",rfbe
         cb.control = FALSE,
         random.cb = NULL
       ),

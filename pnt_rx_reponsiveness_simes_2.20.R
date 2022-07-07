@@ -287,6 +287,43 @@ for (i in 1:1000){
   }
 }
 
+itpar_T30.70_list <- replicate(5, itpar_pnt, simplify=FALSE)
+theta_tars <- c(30,40,50,60,70)
+for (i in 1:5){
+  theta_target <- theta_tars[i] + 6.04
+  itpar_T30.70_list[[i]] <- cbind(itpar_T30.70_list[[i]], abs(itpar_T30.70_list[[i]][,2] - theta_target))
+  item_select <- order(itpar_T30.70_list[[i]][,5])[1:20]
+  #for(j in 1:20){
+  #  itpar_T30.70_list[[i]][item_select[j],2] <-  itpar_T30.70_list[[i]][item_select[j],2] - 12.08 
+  }
+#}
+
+itpar_t50_example <- itpar_T30.70_list[[3]]
+
+# get item names
+itpar_pnt_2015 <- read.csv(file = "itpar_pnt_2015.csv")
+# sanity check
+cor(itpar_pnt_2015$Item.Difficulty, itpar_t50_example[,2])
+#
+itpar_t50_example <- data.frame(cbind(itpar_pnt_2015$Item, itpar_t50_example))
+
+itpar_t50_example$a <- as.numeric(itpar_t50_example$a)
+itpar_t50_example$b <- as.numeric(itpar_t50_example$b)
+itpar_t50_example$c <- as.numeric(itpar_t50_example$c)
+itpar_t50_example$V5 <- as.numeric(itpar_t50_example$V5)
+itpar_t50_example$V6 <- as.numeric(itpar_t50_example$V6)
+itpar_t50_example <- itpar_t50_example[order(itpar_t50_example[,6]),]
+library(catR)
+itpar_t50_example$p <- Pi(50,itpar_t50_example[,2:5])[[1]]
+write.csv(x = itpar_t50_example[1:20,c(1,3,7)], file = "cond2_example.csv")
+itpar_t50_example[1:20,]
+mean(itpar_t50_example$p[c(1:20)])
+
+
+itpar_t50_example$pdiff <- abs(.25 - itpar_t50_example$p) 
+ordvec <- itpar_t50_example[order(itpar_t50_example[,8]),]
+ordvec[1:20,]
+mean(ordvec$p[1:20])
 # simulate post-treatment responses for condition 2, completely item-specific treatment effect
 # itpar_list object created with 10 items selected to approximate 25% correct at baseline,
 # within the limits of the item bank, for each simulee individually
