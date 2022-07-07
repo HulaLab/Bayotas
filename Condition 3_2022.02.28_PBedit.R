@@ -79,7 +79,7 @@ for (i in 1:1000){
         D = 1,
         randomesque = 1,
         random.seed = NULL,
-        startSelect = "MFI",rfbe
+        startSelect = "MFI",
         cb.control = FALSE,
         random.cb = NULL
       ),
@@ -159,3 +159,15 @@ plot(x = n_tx_items_in_posttx_cat30_3.20, y = cond_3.20_cat30_change_scores,
      xlab = "Number of Treated Items Administered in Post-Tx PNT-CAT30", ylab = "PNT-CAT30 Change Score")
 cor.test(x = n_tx_items_in_posttx_cat30_3.20, y = cond_3.20_cat30_change_scores)
 
+cond_3.20_fullpnt_change_scores <- theta_est_posttx_3.20 - theta_est_pretx
+cond_3.20_cat30_change_scores <- theta_est_posttx_3.20_cat30_mat[,1] - theta_est_pretx_cat30$final.values.df$estimated.theta
+
+t.test(x = cond_3.20_fullpnt_change_scores, mu = 0)
+sd(cond_3.20_fullpnt_change_scores)
+
+t.test(x = cond_3.20_cat30_change_scores, mu = 0)
+sd(cond_3.20_cat30_change_scores)
+
+t.test(x = cond_3.20_fullpnt_change_scores, y = cond_3.20_cat30_change_scores, mu = 0)
+sd(cond_3.20_fullpnt_change_scores - cond_3.20_cat30_change_scores)
+mean(cond_3.20_fullpnt_change_scores - cond_3.20_cat30_change_scores)
